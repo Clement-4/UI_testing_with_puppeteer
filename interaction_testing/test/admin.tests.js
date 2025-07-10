@@ -16,15 +16,7 @@ describe("Admin Page", () => {
     page.setDefaultTimeout(config.timeout);
   });
 
-  afterEach(async () => {
-    await page.close();
-  });
-
-  after(async () => {
-    await browser.close();
-  });
-
-  it("Should redirect to the login page", async () => {
+  it("Should redirect to the login page, while visiting admin page without right proper authentication", async () => {
     const response = await page.goto(config.baseURL + "admin");
     response.request().redirectChain()[0].response().status().should.equal(302);
     response
@@ -35,5 +27,13 @@ describe("Admin Page", () => {
       .should.contain("admin");
     response.status().should.equal(200);
     response.url().should.contain("login");
+  });
+
+  afterEach(async () => {
+    await page.close();
+  });
+
+  after(async () => {
+    await browser.close();
   });
 });
