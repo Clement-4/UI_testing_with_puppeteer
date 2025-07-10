@@ -1,0 +1,17 @@
+{
+  "name": "basic_UI_testing",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha --timeout 30000 --reporter=list"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "chai": "^5.2.1",
+    "mocha": "^11.7.1",
+    "puppeteer": "^19.5.2"
+  }
+}
